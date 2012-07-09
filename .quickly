@@ -1,0 +1,5 @@
+project = postman
+version = 12.04
+template = ubuntu-application-qtquick
+dependencies = appmenu-qt,sni-qt
+version_ubuntu-application = 12.04

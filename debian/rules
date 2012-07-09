@@ -1,0 +1,32 @@
+#!/usr/bin/make -f
+%:
+ifneq ($(shell dh -l | grep -xF translations),)
+	dh $@ --with python2,translations
+else
+	dh $@ --with python2
+endif
+
+override_dh_auto_install:
+	dh_auto_install -- --install-scripts=/opt/extras.ubuntu.com/postman                 --install-data=/opt/extras.ubuntu.com/postman                 --install-lib=/opt/extras.ubuntu.com/postman
+
+override_dh_python2:
+	dh_python2 /opt/extras.ubuntu.com/postman
+
+
+override_dh_install:
+	dh_install
+	mkdir -p debian/postman/opt/extras.ubuntu.com/postman/bin
+	if [ -x debian/postman/opt/extras.ubuntu.com/postman/postman/postman ]; then mv debian/postman/opt/extras.ubuntu.com/postman/postman/postman debian/postman/opt/extras.ubuntu.com/postman/bin; fi
+	if [ -f debian/postman/opt/extras.ubuntu.com/postman/share/applications/postman.desktop ]; then \
+		mkdir -p debian/postman/usr/share/applications; \
+		mv debian/postman/opt/extras.ubuntu.com/postman/share/applications/postman.desktop debian/postman/usr/share/applications/extras-postman.desktop; \
+		rmdir --ignore-fail-on-non-empty debian/postman/opt/extras.ubuntu.com/postman/share/applications; \
+		sed -i 's|Exec=[^ ]*|Exec=/opt/extras.ubuntu.com/postman/bin/postman|' debian/postman/usr/share/applications/extras-postman.desktop; \
+		sed -i 's|Icon=/usr/|Icon=/opt/extras.ubuntu.com/postman/|' debian/postman/usr/share/applications/extras-postman.desktop; \
+	fi
+	grep -RlZ 'import gettext' debian/postman/* | xargs -0 -r sed -i 's|\(import\) gettext$$|\1 locale|'
+	grep -RlZ 'from gettext import gettext as _' debian/postman/* | xargs -0 -r sed -i 's|from gettext \(import gettext as _\)|from locale \1|'
+	grep -RlZ "gettext.textdomain('postman')" debian/postman/* | xargs -0 -r sed -i "s|gettext\(\.textdomain('postman')\)|locale\.bindtextdomain('postman', '/opt/extras.ubuntu.com/postman/share/locale')\nlocale\1|" 
+	sed -i "s|__postman_data_directory__ =.*|__postman_data_directory__ = '/opt/extras.ubuntu.com/postman/share/postman/'|" debian/postman/opt/extras.ubuntu.com/postman/postman*/postmanconfig.py
+	sed -i 's|        sys.path.insert(0, opt_path)|\0\n    os.putenv("XDG_DATA_DIRS", "%s:%s" % ("/opt/extras.ubuntu.com/postman/share/", os.getenv("XDG_DATA_DIRS", "")))|' debian/postman/opt/extras.ubuntu.com/postman/bin/postman
+	if [ -d debian/postman/opt/extras.ubuntu.com/postman/share/glib-2.0/schemas ]; then glib-compile-schemas debian/postman/opt/extras.ubuntu.com/postman/share/glib-2.0/schemas; fi

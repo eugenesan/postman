@@ -1,0 +1,11 @@
+Format-Specification: http://svn.debian.org/wsvn/dep/web/deps/dep5.mdwn?op=file&rev=135
+Name: postman
+Maintainer: Edward Apap <schumifer@hotmail.com>
+Source: https://launchpad.net/~schumifer/+archive/postman
+
+Files: *
+Binary file ./data/qml/images/envelopeFront.png matches
+Copyright: (C) 2012 Edward Apap schumifer@hotmail.com
+License: GPL-3
+ The full text of the GPL is distributed in
+ /usr/share/common-licenses/GPL-3 on Debian systems.

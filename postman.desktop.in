@@ -1,0 +1,19 @@
+[Desktop Entry]
+_Name=Postman
+_Comment=Postman application
+Categories=GNOME;Utility;
+Exec=postman
+Icon=/usr/share/postman/media/postman.svg
+Terminal=false
+Type=Application
+Actions=Flickr;UbuntuOne;
+
+[Desktop Action Flickr]
+Name=Upload to Flickr
+Exec=postman -sFlickr
+OnlyShowIn=Unity;
+
+[Desktop Action UbuntuOne]
+Name=Upload to Ubuntu One
+Exec=postman -s"Ubuntu One"
+OnlyShowIn=Unity;
