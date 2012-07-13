@@ -1,6 +1,6 @@
-Format-Specification: http://svn.debian.org/wsvn/dep/web/deps/dep5.mdwn?op=file&rev=135
-Name: postman
-Maintainer: Edward Apap <schumifer@hotmail.com>
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: postman
+Upstream-Contact: Edward Apap <schumifer@hotmail.com>
 Source: https://launchpad.net/~schumifer/+archive/postman
 
 Files: *
