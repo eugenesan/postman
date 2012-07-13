@@ -91,7 +91,7 @@ class UbuntuOneWorker(BaseWorker):
         
         # Create remote path (which contains volume path)
         base = "https://one.ubuntu.com/api/file_storage/v1/~/"
-        answer = auth.request(base + urllib.quote(remote),
+        answer = auth.request(base + urllib.quote(remote.encode('utf-8')),
                               http_method="PUT",
                               request_body='{"kind":"file"}')
         
@@ -107,6 +107,6 @@ class UbuntuOneWorker(BaseWorker):
         
         # Upload content of local file to content_path from original response
         base = "https://files.one.ubuntu.com"
-        url = base + urllib.quote(node.get('content_path'), safe="/~")
+        url = base + urllib.quote(node.get('content_path').encode('utf-8'), safe="/~")
         auth.request(url, http_method="PUT",
                      headers=headers, request_body=data)
