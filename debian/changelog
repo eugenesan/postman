@@ -1,16 +1,5 @@
-postman (0.2ubuntu1) precise; urgency=low
+postman (0.2.1) precise; urgency=low
 
-  * 
-
- -- Edward Apap <schumifer@hotmail.com>  Mon, 09 Jul 2012 19:04:24 +0200
-
-postman (0.2) precise; urgency=low
-
-  [ edward.apap ]
   * Initial release.
 
-  [ administrator ]
-
-  [ Edward Apap ]
-
- -- Edward Apap <schumifer@hotmail.com>  Mon, 09 Jul 2012 18:26:45 +0200
+ -- Edward Apap <schumifer@hotmail.com>  Mon, 09 Jul 2012 19:04:24 +0200
