@@ -1,6 +1,5 @@
 from PySide import QtDeclarative
 
-from MainWindow import *
 
 class QDeclarativeViewCustom(QtDeclarative.QDeclarativeView):
 

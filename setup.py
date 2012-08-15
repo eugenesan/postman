@@ -87,7 +87,7 @@ class InstallAndUpdateDataDirectory(DistUtilsExtra.auto.install_auto):
 
 DistUtilsExtra.auto.setup(
     name='postman',
-    version='0.2.4',
+    version='0.2.5',
     license='GPL-3',
     author='Edward Apap',
     author_email='schumifer@hotmail.com',
