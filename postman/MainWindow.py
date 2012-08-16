@@ -35,7 +35,11 @@ class MainWindow(QtGui.QMainWindow):
         self.ui.declarativeView.mainWindow = self
         self.ui.declarativeView.setResizeMode(QtDeclarative.QDeclarativeView.SizeRootObjectToView)
         self.ui.declarativeView.viewport().setAcceptDrops(True)
-        
+
+        desktopCenter = QtGui.QApplication.desktop().geometry().center()
+        topLeft = QtCore.QPoint(desktopCenter.x() - self.width() / 2, desktopCenter.y() - self.height() / 2)
+        self.move(topLeft)
+
         self.tray = QtGui.QSystemTrayIcon(self)
         self.tray.show()
 
