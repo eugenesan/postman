@@ -28,9 +28,9 @@ class FlickrWorker(BaseWorker):
             self.status = 'Uploading: ' + self.filesModel.filesList[i].filePath
             self.statusSignal.emit(self.stampConfig)
             
-            imageFilename = self.filesModel.filesList[i].filePath.encode('ascii','ignore')
-            imageTitle = self.filesModel.filesList[i].title.encode('ascii','ignore')
-            imageDescription = self.filesModel.filesList[i].description.encode('ascii','ignore')
+            imageFilename = self.filesModel.filesList[i].filePath.encode('UTF-8','ignore')
+            imageTitle = self.filesModel.filesList[i].title.encode('UTF-8','ignore')
+            imageDescription = self.filesModel.filesList[i].description.encode('UTF-8','ignore')
             
             for r in range(self.retry):
                 try:
