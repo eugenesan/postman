@@ -1,5 +1,6 @@
-postman (0.2.5) precise; urgency=low
+postman (0.2.6) precise; urgency=low
 
-  * Initial release.
+  * Fixed unicode issues in Flickr uploader.
+  * User interface enhancement.
 
- -- Edward Apap <schumifer@hotmail.com>  Mon, 09 Jul 2012 19:04:24 +0200
+ -- Edward Apap <schumifer@hotmail.com>  Thu, 16 Aug 2012 23:40:00 +0200
