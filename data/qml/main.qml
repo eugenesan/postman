@@ -143,7 +143,7 @@ Image {
 
     Envelope {
         id: envelope
-        width: 450
+        width: parent.width * 0.6
         anchors.verticalCenter: parent.verticalCenter
         anchors.horizontalCenter: parent.horizontalCenter
 
