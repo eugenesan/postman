@@ -13,6 +13,16 @@ Name=Upload to Flickr
 Exec=postman -sFlickr
 OnlyShowIn=Unity;
 
+[Desktop Action Google+]
+Name=Upload to Google+
+Exec=postman -sGoogle+
+OnlyShowIn=Unity;
+
+[Desktop Action Picasa]
+Name=Upload to Picasa
+Exec=postman -sPicasa
+OnlyShowIn=Unity;
+
 [Desktop Action UbuntuOne]
 Name=Upload to Ubuntu One
 Exec=postman -s"Ubuntu One"

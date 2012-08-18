@@ -23,15 +23,16 @@ Rectangle {
 
             Rectangle {
                 width: 100
-                height: 60
+                height: 55
                 color: "#00000000"
 
                 Image {
                     width: 65
-                    height: 60
+                    height: 55
                     anchors.centerIn: parent
                     fillMode: Image.PreserveAspectFit
                     source: 'images/stampBackground.png'
+                    smooth: true
 
                     Image {
                         id: icon
