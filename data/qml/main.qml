@@ -112,30 +112,55 @@ Image {
         }
     }
 
-    Button {
+    Image {
         id: flipButton
-        visible: false
-        width: 132
-        height: 30
+        width: 60
+        height: 60
         anchors.right: parent.right
         anchors.bottom: parent.bottom
         anchors.margins: 15
-        label: "Flip Envelope"
-        foregroundColor: "#a0ffbea7"
-        gradient: Gradient {
-            GradientStop {
-                position: 0
-                color: "#00ffffff"
-            }
+        source: 'images/flipButton.png'
+        smooth: true
+        state: 'idle'
 
-            GradientStop {
-                position: 1
-                color: "#a0000000"
+        states: [
+            State {
+                name: 'idle'
+                PropertyChanges { target: flipButton; scale: 1.0; opacity: 0.6 }
+            },
+            State {
+                name: 'hover'
+                PropertyChanges { target: flipButton; scale: 1.0; opacity: 1.0 }
+            },
+            State {
+                name: 'pressed'
+                PropertyChanges { target: flipButton; scale: 0.8 }
             }
+        ]
+
+        transitions: Transition {
+            PropertyAnimation { properties: "opacity"; duration: 200 }
+            PropertyAnimation { properties: "scale"; duration: 100 }
         }
 
-        onClicked: {
-            envelope.flipped = !envelope.flipped
+        MouseArea {
+            id: flipMouseArea
+            anchors.fill: parent
+            hoverEnabled: true
+
+            onPressed: flipButton.state = 'pressed'
+            onReleased: {
+                if (flipMouseArea.containsMouse)
+                    flipButton.state = 'hover'
+                else
+                    flipButton.state = 'idle'
+            }
+            onEntered: flipButton.state = 'hover'
+            onExited: flipButton.state = 'idle'
+
+            onClicked: {
+                envelope.flipped = !envelope.flipped
+            }
         }
     }
 
