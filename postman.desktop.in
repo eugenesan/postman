@@ -6,7 +6,7 @@ Exec=postman
 Icon=/usr/share/postman/media/postman.svg
 Terminal=false
 Type=Application
-Actions=Flickr;UbuntuOne;
+Actions=Flickr;Google+;Picasa;UbuntuOne;
 
 [Desktop Action Flickr]
 Name=Upload to Flickr
