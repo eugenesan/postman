@@ -2,6 +2,7 @@ from PySide import QtCore
 from PySide import QtGui
 
 from FlickrWorker import *
+from GooglePlusWorker import *
 from UbuntuOneWorker import *
 
 class ServicesModel(QtCore.QAbstractListModel):
@@ -145,10 +146,11 @@ class ServicesModel(QtCore.QAbstractListModel):
         # assign workers to every service
         for s in self.servicesList:
             # create a worker
-            if s['name'] == 'Flickr':
-                worker = FlickrWorker()
-            elif s['name'] == 'Ubuntu One':
-                worker = UbuntuOneWorker()
+            worker = None
+            for stamp in self.stampsModel.stampList:
+                if stamp.name == s['name']:
+                    worker = stamp.worker()
+                    break
 
             worker.filesModel = self.filesModel
             worker.stampConfig = s

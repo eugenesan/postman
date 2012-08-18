@@ -2,10 +2,11 @@ from PySide import QtCore
 
 class Stamp(object):
 
-    def __init__(self, name, iconSource, configWidget = None):
+    def __init__(self, name, iconSource, configWidget, worker):
         self.name = name
         self.iconSource = iconSource
         self.configWidget = configWidget
+        self.worker = worker
 
 class StampListModel(QtCore.QAbstractListModel):
 

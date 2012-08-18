@@ -22,16 +22,15 @@ class UbuntuOneConfigWidget(QtGui.QWidget):
         # add and initialize non existing parameters
         if not 'auth' in service:
             service['auth'] = False
-            
-        if not 'ubuntuOneVolume' in service:
-            service['ubuntuOneVolume'] = 'postman'
   
         isAuth = service['auth']
 
-        self.ui.loginButton.setEnabled(not isAuth)
+        self.ui.loginButton.setVisible(not isAuth)
         self.ui.successLabel.setVisible(isAuth)
-        self.ui.volumeSettings.setEnabled(isAuth)
-        self.ui.volumeEdit.setText(service['ubuntuOneVolume'])
+        self.ui.volumeSettings.setVisible(isAuth)
+
+        if 'ubuntuOneVolume' in service:
+            self.ui.volumeEdit.setText(service['ubuntuOneVolume'])
         
         # save the reference to the service
         self.service = service
@@ -51,17 +50,19 @@ class UbuntuOneConfigWidget(QtGui.QWidget):
             self.service['auth'] = result != None
             if self.service['auth']:
                 self.serviceModel.notifyAuthChanged()
-    
+
         cd = CredentialsManagementTool()
         d = cd.login()
         d.addCallbacks(loginQuit)
-        
+
         loop.run()
 
         isAuth = self.service['auth']
-        self.ui.loginButton.setEnabled(not isAuth)
+        self.ui.loginButton.setVisible(not isAuth)
         self.ui.successLabel.setVisible(isAuth)
-        self.ui.volumeSettings.setEnabled(isAuth)
+        self.ui.volumeSettings.setVisible(isAuth)
+        if isAuth:
+            self.ui.volumeEdit.setFocus()
     
     def volumeTextEdited(self, text):
         self.service['ubuntuOneVolume'] = text

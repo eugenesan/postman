@@ -1,4 +1,5 @@
 from PySide import QtGui
+from PySide import QtCore
 
 from postman_lib import Ui_AddImagesWidget
 

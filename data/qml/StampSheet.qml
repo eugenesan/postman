@@ -3,8 +3,9 @@ import QtQuick 1.1
 
 Image {
     width: 130
-    height: 300
+    height: 400
     source: "images/stampSheet.png"
+    smooth: true
 
     ListView {
         smooth: true

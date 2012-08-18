@@ -43,7 +43,7 @@ class FlickrWorker(BaseWorker):
                         self.doneSignal.emit(self.stampConfig)
                         return
 
-            self.progress = self.progress + progressStep
+            self.progress += progressStep
             self.progressSignal.emit(self.stampConfig)
         
         self.status = 'Done'

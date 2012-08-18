@@ -25,7 +25,7 @@ class UbuntuOneWorker(BaseWorker):
         if volume.endswith('/'):
             volume = volume[:-1]
         if len(volume) == 0:
-            volume = 'postman'
+            volume = 'Postman'
         
         # start by creating a volume
         for r in range(self.retry):
@@ -64,7 +64,7 @@ class UbuntuOneWorker(BaseWorker):
                         self.doneSignal.emit(self.stampConfig)
                         return
 
-            self.progress = self.progress + progressStep
+            self.progress += progressStep
             self.progressSignal.emit(self.stampConfig)
         
         self.status = 'Done'

@@ -11,6 +11,7 @@ from postman_lib import Ui_MainWindow
 # services imports
 from ServiceInstructionsWidget import *
 from FlickrConfigWidget import *
+from GooglePlusConfigWidget import *
 from UbuntuOneConfigWidget import *
 
 from AddImagesWidget import *
@@ -31,6 +32,7 @@ class MainWindow(QtGui.QMainWindow):
         self.ui = Ui_MainWindow.Ui_MainWindow()
         self.ui.setupUi(self)
         self.setAcceptDrops(True)
+        self.setFixedSize(1100, 550)
 
         self.ui.declarativeView.mainWindow = self
         self.ui.declarativeView.setResizeMode(QtDeclarative.QDeclarativeView.SizeRootObjectToView)
@@ -75,8 +77,9 @@ class MainWindow(QtGui.QMainWindow):
         
     def setupStampsModel(self):
         self.stampsModel = Stamps.StampListModel()
-        self.stampsModel.addStamp(Stamps.Stamp('Flickr', 'images/stamps/flickrIcon.png', FlickrConfigWidget()))
-        self.stampsModel.addStamp(Stamps.Stamp('Ubuntu One', 'images/stamps/ubuntuOneIcon.png', UbuntuOneConfigWidget()))
+        self.stampsModel.addStamp(Stamps.Stamp('Flickr', 'images/stamps/flickrIcon.png', FlickrConfigWidget(), lambda: FlickrWorker()))
+        self.stampsModel.addStamp(Stamps.Stamp('Google+', 'images/stamps/googlePlusIcon.png', GooglePlusConfigWidget(), lambda: GooglePlusWorker()))
+        self.stampsModel.addStamp(Stamps.Stamp('Ubuntu One', 'images/stamps/ubuntuOneIcon.png', UbuntuOneConfigWidget(), lambda: UbuntuOneWorker()))
 
     def initializeQmlScene(self):
         self.rootContext = self.ui.declarativeView.rootContext()
@@ -130,7 +133,7 @@ class MainWindow(QtGui.QMainWindow):
         fileInfo = QtCore.QFileInfo(filepath)
         if fileInfo.isFile():
             # check extension
-            if fileInfo.suffix() in self.validExtensions:
+            if fileInfo.suffix().lower() in self.validExtensions:
                 return True
 
         return False
@@ -138,7 +141,7 @@ class MainWindow(QtGui.QMainWindow):
     def addStamp(self, service):
         # get icon for this service
         stamp = self.stampsModel.getStampByName(service)
-        if stamp != None:
+        if stamp:
             self.interface.createStamp(service, stamp.iconSource)
     
     def stampSelectionChanged(self, uid):

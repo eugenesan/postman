@@ -39,11 +39,11 @@ class FlickrConfigWidget(QtGui.QWidget):
         self.ui.authButton.setText('Authorize...')
         if service['auth'] == True:
             self.state = self.STATE_DONE
-            self.ui.authButton.setEnabled(False)
+            self.ui.authButton.setVisible(False)
             self.ui.successLabel.setVisible(True)
         else:
             self.state = self.STATE_AUTH
-            self.ui.authButton.setEnabled(True)
+            self.ui.authButton.setVisible(True)
             self.ui.successLabel.setVisible(False)
 
         # save the reference to the service
@@ -77,7 +77,7 @@ class FlickrConfigWidget(QtGui.QWidget):
                 self.ui.authButton.setText('Authorize')
                 return
 
-            self.ui.authButton.setEnabled(False)
+            self.ui.authButton.setVisible(False)
             self.ui.successLabel.setVisible(True)
             self.state = self.STATE_DONE
             self.service['auth'] = True
