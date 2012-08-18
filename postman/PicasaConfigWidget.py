@@ -1,14 +1,16 @@
 from PySide import QtGui
 
-from postman_lib import Ui_GooglePlusConfigWidget
+from GooglePlusConfigWidget import *
+
+from postman_lib import Ui_PicasaConfigWidget
 
 
-class GooglePlusConfigWidget(QtGui.QWidget):
+class PicasaConfigWidget(QtGui.QWidget):
 
     def __init__(self, parent = None):
-        super(GooglePlusConfigWidget, self).__init__(parent)
+        super(PicasaConfigWidget, self).__init__(parent)
 
-        self.ui = Ui_GooglePlusConfigWidget.Ui_GooglePlusConfigWidget()
+        self.ui = Ui_PicasaConfigWidget.Ui_PicasaConfigWidget()
         self.ui.setupUi(self)
 
         self.ui.loginButton.clicked.connect(self.loginButtonClicked)

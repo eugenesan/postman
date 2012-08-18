@@ -32,34 +32,6 @@ Image {
     }
 
     Button {
-        id: flipButton
-        x: 628
-        y: 10
-        width: 132
-        height: 30
-        anchors.right: parent.right
-        anchors.top: parent.top
-        anchors.margins: 15
-        label: "Flip Envelope"
-        foregroundColor: "#a0ffbea7"
-        gradient: Gradient {
-            GradientStop {
-                position: 0
-                color: "#00ffffff"
-            }
-
-            GradientStop {
-                position: 1
-                color: "#a0000000"
-            }
-        }
-
-        onClicked: {
-            envelope.flipped = !envelope.flipped
-        }
-    }
-
-    Button {
         id: deliveryButton
         width: 160
         height: 40
@@ -122,22 +94,48 @@ Image {
 
     StampSheet {
         id: stampSheet
-        y: 116
-        anchors.left: parent.left
-        anchors.leftMargin: 0
-        anchors.verticalCenter: parent.verticalCenter
+        width: parent.width
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.top: parent.top
 
         states: State {
             name: "hidden"
-            PropertyChanges { target: stampSheet; anchors.leftMargin: -width }
+            PropertyChanges { target: stampSheet; anchors.topMargin: -height }
             when: envelope.side == Flipable.Back
         }
 
         transitions: Transition {
             SequentialAnimation {
                 NumberAnimation { duration: 200 }
-                PropertyAnimation { property: "anchors.leftMargin"; duration: 300; easing.type: Easing.InOutQuad }
+                PropertyAnimation { property: "anchors.topMargin"; duration: 300; easing.type: Easing.InOutQuad }
             }
+        }
+    }
+
+    Button {
+        id: flipButton
+        visible: false
+        width: 132
+        height: 30
+        anchors.right: parent.right
+        anchors.bottom: parent.bottom
+        anchors.margins: 15
+        label: "Flip Envelope"
+        foregroundColor: "#a0ffbea7"
+        gradient: Gradient {
+            GradientStop {
+                position: 0
+                color: "#00ffffff"
+            }
+
+            GradientStop {
+                position: 1
+                color: "#a0000000"
+            }
+        }
+
+        onClicked: {
+            envelope.flipped = !envelope.flipped
         }
     }
 
@@ -145,6 +143,7 @@ Image {
         id: envelope
         width: parent.width * 0.6
         anchors.verticalCenter: parent.verticalCenter
+        anchors.verticalCenterOffset: stampSheet.height / 6
         anchors.horizontalCenter: parent.horizontalCenter
 
         onFlippedChanged: {

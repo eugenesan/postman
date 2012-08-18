@@ -91,5 +91,5 @@ class FlickrConfigWidget(QtGui.QWidget):
             self.ui.authButton.setText('Confirm')
             self.ui.authButton.setEnabled(True)
     
-        self.count = self.count - 1
+        self.count -= 1
 

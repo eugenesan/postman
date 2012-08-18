@@ -20,6 +20,7 @@ Depends: ${misc:Depends},
  python-gobject-2,
  python-ubuntuone-client,
  python-flickrapi,
+ python-gdata,
  appmenu-qt,
  sni-qt
 Description: A batch image uploading application.

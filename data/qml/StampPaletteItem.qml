@@ -10,7 +10,7 @@ Rectangle {
 
     id: stampPaletteItem
     width: 100
-    height: 100
+    height: 80
     color: "#00000000"
 
     MouseArea {
@@ -23,12 +23,12 @@ Rectangle {
 
             Rectangle {
                 width: 100
-                height: 80
+                height: 60
                 color: "#00000000"
 
                 Image {
                     width: 65
-                    height: 80
+                    height: 60
                     anchors.centerIn: parent
                     fillMode: Image.PreserveAspectFit
                     source: 'images/stampBackground.png'
@@ -46,7 +46,7 @@ Rectangle {
             }
             Text {
                 id: label
-                color: "#3c3c3c"
+                color: "#ffffff"
                 text: serviceName
                 font.bold: true
                 anchors.horizontalCenter: parent.horizontalCenter

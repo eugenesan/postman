@@ -12,6 +12,7 @@ from postman_lib import Ui_MainWindow
 from ServiceInstructionsWidget import *
 from FlickrConfigWidget import *
 from GooglePlusConfigWidget import *
+from PicasaConfigWidget import *
 from UbuntuOneConfigWidget import *
 
 from AddImagesWidget import *
@@ -79,6 +80,7 @@ class MainWindow(QtGui.QMainWindow):
         self.stampsModel = Stamps.StampListModel()
         self.stampsModel.addStamp(Stamps.Stamp('Flickr', 'images/stamps/flickrIcon.png', FlickrConfigWidget(), lambda: FlickrWorker()))
         self.stampsModel.addStamp(Stamps.Stamp('Google+', 'images/stamps/googlePlusIcon.png', GooglePlusConfigWidget(), lambda: GooglePlusWorker()))
+        self.stampsModel.addStamp(Stamps.Stamp('Picasa', 'images/stamps/picasaIcon.png', PicasaConfigWidget(), lambda: GooglePlusWorker()))
         self.stampsModel.addStamp(Stamps.Stamp('Ubuntu One', 'images/stamps/ubuntuOneIcon.png', UbuntuOneConfigWidget(), lambda: UbuntuOneWorker()))
 
     def initializeQmlScene(self):
