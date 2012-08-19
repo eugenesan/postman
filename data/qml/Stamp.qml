@@ -61,7 +61,10 @@ Image {
         onReleased: checkStatus()
     }
 
-    Keys.onDeletePressed: StampCode.destroyStamp()
+    Keys.onDeletePressed: {
+        if (state == "normal")
+            StampCode.destroyStamp()
+    }
 
     states: [
         State {
