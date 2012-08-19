@@ -92,22 +92,52 @@ Image {
         ]
     }
 
-    StampSheet {
-        id: stampSheet
-        width: parent.width
-        anchors.horizontalCenter: parent.horizontalCenter
+    Rectangle {
+        id: stampPalette
+        anchors.right: parent.right
+        anchors.left: parent.left
         anchors.top: parent.top
+        height: 100
+        color: "#00ffffff"
 
-        states: State {
-            name: "hidden"
-            PropertyChanges { target: stampSheet; anchors.topMargin: -height }
-            when: envelope.side == Flipable.Back
+        Rectangle {
+            anchors.fill: parent
+            opacity: envelope.side == Flipable.Back ? 0.0 : 1.0
+
+            Behavior on opacity { PropertyAnimation { duration: 800 } }
+
+            gradient: Gradient {
+                GradientStop {
+                    position: 0
+                    color: "#000000"
+                }
+
+                GradientStop {
+                    position: 1
+                    color: "#00000000"
+                }
+            }
+
+            smooth: true
         }
 
-        transitions: Transition {
-            SequentialAnimation {
-                NumberAnimation { duration: 200 }
-                PropertyAnimation { property: "anchors.topMargin"; duration: 300; easing.type: Easing.InOutQuad }
+        StampSheet {
+            id: stampSheet
+            width: 400
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.top: parent.top
+
+            states: State {
+                name: "hidden"
+                PropertyChanges { target: stampSheet; anchors.topMargin: -parent.height }
+                when: envelope.side == Flipable.Back
+            }
+
+            transitions: Transition {
+                SequentialAnimation {
+                    NumberAnimation { duration: 200 }
+                    PropertyAnimation { property: "anchors.topMargin"; duration: 600; easing.type: Easing.InOutCubic }
+                }
             }
         }
     }
@@ -168,7 +198,7 @@ Image {
         id: envelope
         width: parent.width * 0.65
         anchors.verticalCenter: parent.verticalCenter
-        anchors.verticalCenterOffset: stampSheet.height / 6
+        anchors.verticalCenterOffset: stampPalette.height / 6
         anchors.horizontalCenter: parent.horizontalCenter
 
         onFlippedChanged: {
