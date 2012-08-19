@@ -1,6 +1,8 @@
-postman (0.2.6) precise; urgency=low
+postman (0.3.0) precise; urgency=low
 
-  * Fixed unicode issues in Flickr uploader.
-  * User interface enhancement.
+  * Flickr tokens are now cached.
+  * Added Google+ and Picasa services.
+  * Various user interface improvements.
+  * Bug fixes.
 
- -- Edward Apap <schumifer@hotmail.com>  Thu, 16 Aug 2012 23:40:00 +0200
+ -- Edward Apap <schumifer@hotmail.com>  Thu, 19 Aug 2012 23:59:00 +0200
