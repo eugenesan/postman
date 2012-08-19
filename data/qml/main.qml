@@ -104,7 +104,7 @@ Image {
             anchors.fill: parent
             opacity: envelope.side == Flipable.Back ? 0.0 : 1.0
 
-            Behavior on opacity { PropertyAnimation { duration: 800 } }
+            Behavior on opacity { PropertyAnimation { duration: 800; easing.type: Easing.InOutCubic } }
 
             gradient: Gradient {
                 GradientStop {
@@ -129,15 +129,13 @@ Image {
 
             states: State {
                 name: "hidden"
-                PropertyChanges { target: stampSheet; anchors.topMargin: -parent.height }
+                PropertyChanges { target: stampSheet; anchors.topMargin: -parent.height; scale: 0.9 }
                 when: envelope.side == Flipable.Back
             }
 
             transitions: Transition {
-                SequentialAnimation {
-                    NumberAnimation { duration: 200 }
-                    PropertyAnimation { property: "anchors.topMargin"; duration: 600; easing.type: Easing.InOutCubic }
-                }
+                PropertyAnimation { property: "anchors.topMargin"; duration: 800; easing.type: Easing.InOutCubic }
+                PropertyAnimation { property: "scale"; duration: 800; easing.type: Easing.InOutCubic }
             }
         }
     }
