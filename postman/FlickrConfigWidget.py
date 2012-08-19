@@ -17,7 +17,8 @@ class FlickrConfigWidget(QtGui.QWidget):
         
         self.ui = Ui_FlickrConfigWidget.Ui_FlickrConfigWidget()
         self.ui.setupUi(self)
-        
+
+        self.ui.usernameEdit.returnPressed.connect(self.ui.authButton.clicked)
         self.ui.authButton.clicked.connect(self.authButtonClicked)
         
         self.enablerTimer = QtCore.QTimer(self)
@@ -33,17 +34,18 @@ class FlickrConfigWidget(QtGui.QWidget):
         if not 'auth' in service:
             service['auth'] = False
 
-        if not 'flickrInst' in service:
-            service['flickrInst'] = flickrapi.FlickrAPI(FlickrWorker.key, FlickrWorker.secret, store_token=False)
-
-        self.ui.authButton.setText('Authorize...')
+        self.ui.authButton.setText('Login...')
         if service['auth'] == True:
             self.state = self.STATE_DONE
-            self.ui.authButton.setVisible(False)
+            self.ui.loginGroupBox.setVisible(False)
             self.ui.successLabel.setVisible(True)
         else:
             self.state = self.STATE_AUTH
-            self.ui.authButton.setVisible(True)
+            self.ui.loginGroupBox.setEnabled(True)
+            self.ui.loginGroupBox.setVisible(True)
+            self.ui.usernameContainer.setEnabled(True)
+            self.ui.usernameEdit.clear()
+            self.ui.authButton.setEnabled(True)
             self.ui.successLabel.setVisible(False)
 
         # save the reference to the service
@@ -51,20 +53,40 @@ class FlickrConfigWidget(QtGui.QWidget):
     
     def authButtonClicked(self):
         if self.state == self.STATE_AUTH:
+
+            # username field should not be empty
+            if len(self.ui.usernameEdit.text()) == 0:
+                return
+
+            self.ui.usernameContainer.setEnabled(False)
+
             try:
+                self.service['flickrInst'] = flickrapi.FlickrAPI(FlickrWorker.key, FlickrWorker.secret, username=self.ui.usernameEdit.text(), store_token=True)
                 (token, frob) = self.service['flickrInst'].get_token_part_one(perms='write')
+
+                if token:
+                    # token existed in cache
+                    self.state = self.STATE_DONE
+                    self.ui.loginGroupBox.setVisible(False)
+                    self.ui.successLabel.setVisible(True)
+
+                    self.service['auth'] = True
+                    self.serviceModel.notifyAuthChanged()
+
             except:
                 QtGui.QMessageBox.information(self, QtCore.QCoreApplication.applicationName(), 'Cannot start the authorization process.\n\nPlease make sure that you are connected to the internet.')
+                self.ui.usernameContainer.setEnabled(True)
                 return
 
             self.service['flickrToken'] = token
             self.service['flickrFrob'] = frob
 
             self.ui.authButton.setEnabled(False)
-            self.state = self.STATE_CONFIRM
-            
-            self.enablerTimer.start()
-            self.count = 5
+
+            if not token:
+                self.state = self.STATE_CONFIRM
+                self.enablerTimer.start()
+                self.count = 5
 
         elif self.state == self.STATE_CONFIRM:
             # check if authenticated correctly
@@ -74,10 +96,11 @@ class FlickrConfigWidget(QtGui.QWidget):
                 QtGui.QMessageBox.information(self, QtGui.QApplication.applicationName(), '<p>The Flickr website did not authorize ' + QtGui.QApplication.applicationName() + ' correctly.</p><p>Please make sure that you finish the authorization process before clicking the <span style="font-style: italic">Confirm</span> button.</p>')
 
                 self.state = self.STATE_AUTH
-                self.ui.authButton.setText('Authorize')
+                self.ui.usernameContainer.setEnabled(True)
+                self.ui.authButton.setText('Login...')
                 return
 
-            self.ui.authButton.setVisible(False)
+            self.ui.loginGroupBox.setVisible(False)
             self.ui.successLabel.setVisible(True)
             self.state = self.STATE_DONE
             self.service['auth'] = True
