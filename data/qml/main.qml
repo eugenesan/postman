@@ -166,7 +166,7 @@ Image {
 
     Envelope {
         id: envelope
-        width: parent.width * 0.6
+        width: parent.width * 0.7
         anchors.verticalCenter: parent.verticalCenter
         anchors.verticalCenterOffset: stampSheet.height / 6
         anchors.horizontalCenter: parent.horizontalCenter

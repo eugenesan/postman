@@ -33,7 +33,9 @@ class MainWindow(QtGui.QMainWindow):
         self.ui = Ui_MainWindow.Ui_MainWindow()
         self.ui.setupUi(self)
         self.setAcceptDrops(True)
-        self.setFixedSize(1100, 550)
+        self.setFixedHeight(550)
+        self.setMinimumWidth(1000)
+        self.setMaximumWidth(1100)
 
         self.ui.declarativeView.mainWindow = self
         self.ui.declarativeView.setResizeMode(QtDeclarative.QDeclarativeView.SizeRootObjectToView)
