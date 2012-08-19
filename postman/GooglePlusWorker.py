@@ -26,6 +26,9 @@ class GooglePlusWorker(BaseWorker):
         try:
             album = None
 
+            # re-login, just in case we timed out
+            client.ClientLogin(self.stampConfig['googlePlusUsername'], self.stampConfig['googlePlusPassword'])
+
             # get the list of available albums
             availableAlbums = client.GetFeed('http://picasaweb.google.com/data/feed/api/user/' + self.stampConfig['googlePlusUsername'] + '?kind=album&access=all')
 
