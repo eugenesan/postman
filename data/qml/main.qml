@@ -104,7 +104,7 @@ Image {
             anchors.fill: parent
             opacity: envelope.side == Flipable.Back ? 0.0 : 1.0
 
-            Behavior on opacity { PropertyAnimation { duration: 800; easing.type: Easing.InOutCubic } }
+            Behavior on opacity { PropertyAnimation { duration: 500; easing.type: Easing.InOutCubic } }
 
             gradient: Gradient {
                 GradientStop {
@@ -134,8 +134,8 @@ Image {
             }
 
             transitions: Transition {
-                PropertyAnimation { property: "anchors.topMargin"; duration: 800; easing.type: Easing.InOutCubic }
-                PropertyAnimation { property: "scale"; duration: 800; easing.type: Easing.InOutCubic }
+                PropertyAnimation { property: "anchors.topMargin"; duration: 500; easing.type: Easing.InOutCubic }
+                PropertyAnimation { property: "scale"; duration: 500; easing.type: Easing.InOutCubic }
             }
         }
     }
