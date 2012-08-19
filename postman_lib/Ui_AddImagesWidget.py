@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'AddImagesWidget.ui'
 #
-# Created: Sun Jul  8 19:31:21 2012
+# Created: Sun Aug 19 22:44:43 2012
 #      by: pyside-uic 0.2.13 running on PySide 1.1.0
 #
 # WARNING! All changes made in this file will be lost!
@@ -42,7 +42,7 @@ class Ui_AddImagesWidget(object):
     def retranslateUi(self, AddImagesWidget):
         AddImagesWidget.setWindowTitle(QtGui.QApplication.translate("AddImagesWidget", "Form", None, QtGui.QApplication.UnicodeUTF8))
         self.label.setText(QtGui.QApplication.translate("AddImagesWidget", "<p>You may add images to your envelope by dragging files and folders from your computer onto this window. Alternatively, you may click the <span style=\"font-style:italic\">Add Images...</span> button below to browse for files.</p>\n"
-"<p>Clicking on the stack of images will cause the images to open into a grid. You may then enter metadata for each of the images.</p>\n"
+"<p>Clicking on the stack of images will open the images in a grid. You may then enter metadata for each of the images.</p>\n"
 "<p><span style=\"font-weight:bold\">Note: </span>Only some upload services will make use of the metadata.", None, QtGui.QApplication.UnicodeUTF8))
         self.addImagesButton.setText(QtGui.QApplication.translate("AddImagesWidget", "Add Images...", None, QtGui.QApplication.UnicodeUTF8))
 
