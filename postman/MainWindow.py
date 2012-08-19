@@ -1,12 +1,10 @@
 from PySide import QtGui
 from PySide import QtDeclarative
 
-import os
-
-from postman_lib import helpers
 from postman_lib import postmanconfig
 
 from postman_lib import Ui_MainWindow
+from postman_lib import QShowdownWidget
 
 # services imports
 from ServiceInstructionsWidget import *
@@ -180,4 +178,4 @@ class MainWindow(QtGui.QMainWindow):
             self.loadConfigWidget()
         elif screen == 'deliveryView':
             self.dockWindow.setWindowTitle('Delivery')
-            self.dockWindow.setWidget(None)
+            self.dockWindow.setWidget(QShowdownWidget.QShowdownWidget())
