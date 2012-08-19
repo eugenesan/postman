@@ -5,11 +5,15 @@ function checkStatus() {
 
     if ((x < envelope.front.x) || (y < envelope.front.y) ||
         (x + width > envelope.front.x + envelope.front.width) || (y + height > envelope.front.y + envelope.front.height)) {
-        stamp.destroy(300)
-        state = "shrunk"
-        servicesModel.destroyStamp(stamp.serviceUid)
+        destroyStamp()
     }
     else {
         state = "normal"
     }
+}
+
+function destroyStamp() {
+    stamp.destroy(300)
+    state = "shrunk"
+    servicesModel.destroyStamp(stamp.serviceUid)
 }

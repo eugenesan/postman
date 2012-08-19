@@ -13,6 +13,7 @@ Image {
     width: 65
     height: 80
     scale: 0
+    focus: selectionBox.visible
 
     Component.onCompleted: state = "grabbed"
 
@@ -59,6 +60,8 @@ Image {
         }
         onReleased: checkStatus()
     }
+
+    Keys.onDeletePressed: StampCode.destroyStamp()
 
     states: [
         State {
