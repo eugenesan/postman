@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ServiceInstructionsWidget.ui'
 #
-# Created: Sat Aug 18 17:50:23 2012
+# Created: Sun Aug 19 22:38:30 2012
 #      by: pyside-uic 0.2.13 running on PySide 1.1.0
 #
 # WARNING! All changes made in this file will be lost!
@@ -29,6 +29,5 @@ class Ui_ServiceInstructionsWidget(object):
 
     def retranslateUi(self, ServiceInstructionsWidget):
         ServiceInstructionsWidget.setWindowTitle(QtGui.QApplication.translate("ServiceInstructionsWidget", "Form", None, QtGui.QApplication.UnicodeUTF8))
-        self.label.setText(QtGui.QApplication.translate("ServiceInstructionsWidget", "<p>To add services, drag the stamps from the top onto the envelope. To remove any of the added services, simply drag the stamps off the envelope.</p>\n"
-"<p><span style=\"font-weight:bold\">Note: </span>You may flip the envelope at any time by double-clicking it.</p>", None, QtGui.QApplication.UnicodeUTF8))
+        self.label.setText(QtGui.QApplication.translate("ServiceInstructionsWidget", "<p>Add services by dragging stamps onto the envelope. To remove any of the added services, drag them off the envelope.</p>", None, QtGui.QApplication.UnicodeUTF8))
 

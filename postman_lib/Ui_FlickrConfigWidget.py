@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'FlickrConfigWidget.ui'
 #
-# Created: Sun Aug 19 22:14:04 2012
+# Created: Sun Aug 19 22:24:02 2012
 #      by: pyside-uic 0.2.13 running on PySide 1.1.0
 #
 # WARNING! All changes made in this file will be lost!
@@ -83,7 +83,7 @@ class Ui_FlickrConfigWidget(object):
 
     def retranslateUi(self, FlickrConfigWidget):
         FlickrConfigWidget.setWindowTitle(QtGui.QApplication.translate("FlickrConfigWidget", "Form", None, QtGui.QApplication.UnicodeUTF8))
-        self.instructionLabel.setText(QtGui.QApplication.translate("FlickrConfigWidget", "<html><head/><body><p>Flickr is an image and video hosting website owned by Yahoo!</p><p>When logging in through Postman with a username for the first time, clicking the <span style=\" font-style:italic;\">Login...</span> button will launch your default web browser so that you can authorize Postman to upload photos to your Flickr account. After granting permissions, click the <span style=\" font-style:italic;\">Confirm</span> button to complete the process.</p> <p>Subsequent logins with authorized usernames will be automatic.</p></body></html>", None, QtGui.QApplication.UnicodeUTF8))
+        self.instructionLabel.setText(QtGui.QApplication.translate("FlickrConfigWidget", "<html><head/><body><p>Flickr is an image and video hosting website owned by Yahoo!</p><p>When logging in through Postman with a  <span style=\" font-style:italic;\">username</span> for the first time, clicking the <span style=\" font-style:italic;\">Login...</span> button will launch your default web browser so that you can authorize Postman to upload photos to your Flickr account. After granting permissions, click the <span style=\" font-style:italic;\">Confirm</span> button to complete the process.</p> <p>Subsequent logins with authorized  <span style=\" font-style:italic;\">usernames</span> will be automatic.</p></body></html>", None, QtGui.QApplication.UnicodeUTF8))
         self.loginGroupBox.setTitle(QtGui.QApplication.translate("FlickrConfigWidget", "Login", None, QtGui.QApplication.UnicodeUTF8))
         self.label.setText(QtGui.QApplication.translate("FlickrConfigWidget", "Username", None, QtGui.QApplication.UnicodeUTF8))
         self.authButton.setText(QtGui.QApplication.translate("FlickrConfigWidget", "Login...", None, QtGui.QApplication.UnicodeUTF8))
