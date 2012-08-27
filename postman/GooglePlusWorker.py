@@ -57,6 +57,10 @@ class GooglePlusWorker(BaseWorker):
             imageFilename = self.filesModel.filesList[i].filePath.encode('UTF-8','ignore')
             imageTitle = self.filesModel.filesList[i].title.encode('UTF-8','ignore')
             imageDescription = self.filesModel.filesList[i].description.encode('UTF-8','ignore')
+            imageTags = self.filesModel.filesList[i].tags.encode('UTF-8','ignore')
+
+            # build tags list
+            tagList = [tag.lstrip().rstrip() for tag in imageTags.split(',')]
 
             if len(imageTitle) == 0:
                 # title is required, use filename
@@ -65,7 +69,7 @@ class GooglePlusWorker(BaseWorker):
 
             for r in range(self.retry):
                 try:
-                    client.InsertPhotoSimple(album, imageTitle, imageDescription, imageFilename)
+                    client.InsertPhotoSimple(album, imageTitle, imageDescription, imageFilename, keywords=tagList)
                     break
                 except:
                     if r == self.retry - 1:

@@ -31,10 +31,15 @@ class FlickrWorker(BaseWorker):
             imageFilename = self.filesModel.filesList[i].filePath.encode('UTF-8','ignore')
             imageTitle = self.filesModel.filesList[i].title.encode('UTF-8','ignore')
             imageDescription = self.filesModel.filesList[i].description.encode('UTF-8','ignore')
-            
+            imageTags = self.filesModel.filesList[i].tags.encode('UTF-8','ignore')
+
+            # build space delimited tags string
+            tagList = ['"{}"'.format(tag.lstrip().rstrip()) for tag in imageTags.split(',')]
+            tagsString = ' '.join(tagList)
+
             for r in range(self.retry):
                 try:
-                    flickrInstance.upload(filename=imageFilename, title=imageTitle, description=imageDescription)
+                    flickrInstance.upload(filename=imageFilename, title=imageTitle, description=imageDescription, tags=tagsString)
                     break
                 except:
                     if r == self.retry - 1:

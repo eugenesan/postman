@@ -6,3 +6,4 @@ class FileDetails:
         self.filePath = filePath
         self.title = ''
         self.description = ''
+        self.tags = ''
