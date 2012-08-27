@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ShowdownWidget.ui'
 #
-# Created: Mon Aug 27 21:45:13 2012
+# Created: Mon Aug 27 23:16:36 2012
 #      by: pyside-uic 0.2.13 running on PySide 1.1.0
 #
 # WARNING! All changes made in this file will be lost!
@@ -12,8 +12,8 @@ from PySide import QtCore, QtGui
 class Ui_ShowdownWidget(object):
     def setupUi(self, ShowdownWidget):
         ShowdownWidget.setObjectName("ShowdownWidget")
-        ShowdownWidget.resize(269, 350)
-        ShowdownWidget.setMaximumSize(QtCore.QSize(16777215, 350))
+        ShowdownWidget.resize(269, 370)
+        ShowdownWidget.setMaximumSize(QtCore.QSize(16777215, 370))
         self.verticalLayout_2 = QtGui.QVBoxLayout(ShowdownWidget)
         self.verticalLayout_2.setSpacing(0)
         self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
@@ -76,7 +76,7 @@ class Ui_ShowdownWidget(object):
         ShowdownWidget.setWindowTitle(QtGui.QApplication.translate("ShowdownWidget", "Form", None, QtGui.QApplication.UnicodeUTF8))
         self.label.setText(QtGui.QApplication.translate("ShowdownWidget", "Ubuntu App Showdown", None, QtGui.QApplication.UnicodeUTF8))
         self.label_2.setText(QtGui.QApplication.translate("ShowdownWidget", "<p>This application was created as part of the Ubuntu App Showdown competition. If you like this application and would like to see further development, please support <span style=\'font: bold\'>Postman</span> by voting.</p>\n"
-"<p>To vote, click the link below and scroll down to the <span style=\'font: bold\'>Postman</span> entry. Give a rating (the higher, the better!), and click <span style=\'font: italic\'>Done</span> at the bottom of the page.</p>", None, QtGui.QApplication.UnicodeUTF8))
+"<p>To vote, click the link below and scroll down to the <span style=\'font: bold\'>Postman</span> entry. Give a rating (the higher, the better!), leave a short comment and click <span style=\'font: italic\'>Done</span> at the bottom of the page.</p>", None, QtGui.QApplication.UnicodeUTF8))
         self.label_3.setText(QtGui.QApplication.translate("ShowdownWidget", "<style>a { color: white; }</style>\n"
 "<a href=\"http://www.surveymonkey.com/s/P56YNQ9\">Vote now!</a>", None, QtGui.QApplication.UnicodeUTF8))
         self.label_4.setText(QtGui.QApplication.translate("ShowdownWidget", "Voting ends on the 29 August 2012. This message will not appear after that date.", None, QtGui.QApplication.UnicodeUTF8))

@@ -1,8 +1,6 @@
-postman (0.3.0) precise; urgency=low
+postman (0.3.1) precise; urgency=low
 
-  * Flickr tokens are now cached.
-  * Added Google+ and Picasa services.
-  * Various user interface improvements.
-  * Bug fixes.
+  * Added tagging support.
+  * Changed internal handling of UI.
 
- -- Edward Apap <schumifer@hotmail.com>  Thu, 19 Aug 2012 23:59:00 +0200
+ -- Edward Apap <schumifer@hotmail.com>  Mon, 27 Aug 2012 23:56:00 +0200
