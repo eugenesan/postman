@@ -2,8 +2,8 @@
 
 # Form implementation generated from reading ui file 'ImageDetailsWidget.ui'
 #
-# Created: Sun Jul 08 00:49:12 2012
-#      by: pyside-uic 0.2.14 running on PySide 1.1.1
+# Created: Mon Aug 27 21:36:55 2012
+#      by: pyside-uic 0.2.13 running on PySide 1.1.0
 #
 # WARNING! All changes made in this file will be lost!
 

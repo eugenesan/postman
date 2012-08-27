@@ -23,7 +23,7 @@ Depends: ${misc:Depends},
  python-gdata,
  appmenu-qt,
  sni-qt
-Description: A batch image uploading application.
+Description: Upload photos to online services through an intuitive interface.
  Postman is a utility program to batch upload images to popular websites
  or services. This is done through a simple and modern intuitive user
  interface. Drag stamps to mark destinations, and drag images to select

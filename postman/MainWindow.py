@@ -31,7 +31,7 @@ class MainWindow(QtGui.QMainWindow):
         self.ui = Ui_MainWindow.Ui_MainWindow()
         self.ui.setupUi(self)
         self.setAcceptDrops(True)
-        self.setFixedHeight(550)
+        self.setFixedHeight(600)
         self.setMinimumWidth(1000)
         self.setMaximumWidth(1100)
 

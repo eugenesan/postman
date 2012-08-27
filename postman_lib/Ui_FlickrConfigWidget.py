@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'FlickrConfigWidget.ui'
 #
-# Created: Sun Aug 19 22:24:02 2012
+# Created: Mon Aug 27 21:36:55 2012
 #      by: pyside-uic 0.2.13 running on PySide 1.1.0
 #
 # WARNING! All changes made in this file will be lost!

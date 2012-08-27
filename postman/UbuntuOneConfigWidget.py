@@ -7,7 +7,7 @@ class UbuntuOneConfigWidget(QtGui.QWidget):
     
     def __init__(self, parent = None):
         super(UbuntuOneConfigWidget, self).__init__(parent)
-        
+
         self.ui = Ui_UbuntuOneConfigWidget.Ui_UbuntuOneConfigWidget()
         self.ui.setupUi(self)
         

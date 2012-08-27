@@ -91,7 +91,7 @@ DistUtilsExtra.auto.setup(
     license='GPL-3',
     author='Edward Apap',
     author_email='schumifer@hotmail.com',
-    description='A modern batch image uploading application.',
+    description='Upload photos to online services through an intuitive interface.',
     long_description='Postman is a utility program to batch upload images to popular websites or services. This is done through a simple and modern intuitive user interface. Drag stamps to mark destinations, and drag images to select content. Currently Flickr, Ubuntu One, Google+ and Picasa are supported.',
     url='https://launchpad.net/~schumifer/+archive/postman',
     cmdclass={'install': InstallAndUpdateDataDirectory}
