@@ -46,19 +46,8 @@
      </property>
     </spacer>
    </item>
-   <item>
-    <widget class="QShowdownWidget" name="showdownWidget" native="true"/>
-   </item>
   </layout>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>QShowdownWidget</class>
-   <extends>QWidget</extends>
-   <header>QShowdownWidget</header>
-   <container>1</container>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>

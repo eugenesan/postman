@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'UbuntuOneConfigWidget.ui'
 #
-# Created: Mon Aug 27 23:16:36 2012
+# Created: Sat Sep  1 22:51:12 2012
 #      by: pyside-uic 0.2.13 running on PySide 1.1.0
 #
 # WARNING! All changes made in this file will be lost!
