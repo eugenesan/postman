@@ -17,8 +17,13 @@ class UbuntuOneWorker(BaseWorker):
             return
         
         progressStep = 1.0 / self.filesModel.count()
-        
-        volume = self.stampConfig['ubuntuOneVolume'].rstrip()
+
+        volume = ''
+        if 'ubuntuOneVolume' in self.stampConfig:
+            volume = self.stampConfig['ubuntuOneVolume'].rstrip().encode('UTF-8','ignore')
+        if len(volume) == 0:
+            volume = 'Postman'
+
         volume = volume.replace('\\', '/')
         if volume.startswith('/'):
             volume = volume[1:]
