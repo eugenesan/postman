@@ -160,7 +160,7 @@ class MainWindow(QtGui.QMainWindow):
             configWidget.setServiceModel(self.servicesModel)
             configWidget.setService(service)
 
-            self.dockWindow.setWindowTitle(serviceName + ' Configuration')
+            self.dockWindow.setWindowTitle('')
             self.dockWindow.setWidget(configWidget)
 
     def screenChanged(self, screen):

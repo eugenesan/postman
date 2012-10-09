@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'UbuntuOneConfigWidget.ui'
 #
-# Created: Sat Sep  1 22:51:12 2012
+# Created: Tue Oct  9 22:34:29 2012
 #      by: pyside-uic 0.2.13 running on PySide 1.1.0
 #
 # WARNING! All changes made in this file will be lost!
@@ -17,17 +17,14 @@ class Ui_UbuntuOneConfigWidget(object):
         self.verticalLayout = QtGui.QVBoxLayout(UbuntuOneConfigWidget)
         self.verticalLayout.setContentsMargins(0, 0, 0, -1)
         self.verticalLayout.setObjectName("verticalLayout")
-        self.frame = QtGui.QFrame(UbuntuOneConfigWidget)
-        self.frame.setMinimumSize(QtCore.QSize(0, 90))
-        self.frame.setMaximumSize(QtCore.QSize(16777215, 90))
-        self.frame.setStyleSheet("QFrame {\n"
-"    background-image: url(/opt/extras.ubuntu.com/postman/share/postman/media/ubuntuOneLogo.png);\n"
-"    background-repeat: none;\n"
-"    background-origin: border-box;\n"
-"    background-position: left center\n"
-"}")
-        self.frame.setObjectName("frame")
-        self.verticalLayout.addWidget(self.frame)
+        self.label_3 = QtGui.QLabel(UbuntuOneConfigWidget)
+        font = QtGui.QFont()
+        font.setPointSize(28)
+        self.label_3.setFont(font)
+        self.label_3.setObjectName("label_3")
+        self.verticalLayout.addWidget(self.label_3)
+        spacerItem = QtGui.QSpacerItem(20, 10, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Fixed)
+        self.verticalLayout.addItem(spacerItem)
         self.verticalLayout_2 = QtGui.QVBoxLayout()
         self.verticalLayout_2.setContentsMargins(6, 6, 6, -1)
         self.verticalLayout_2.setObjectName("verticalLayout_2")
@@ -36,17 +33,17 @@ class Ui_UbuntuOneConfigWidget(object):
         self.label.setWordWrap(True)
         self.label.setObjectName("label")
         self.verticalLayout_2.addWidget(self.label)
-        spacerItem = QtGui.QSpacerItem(20, 10, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Fixed)
-        self.verticalLayout_2.addItem(spacerItem)
+        spacerItem1 = QtGui.QSpacerItem(20, 10, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Fixed)
+        self.verticalLayout_2.addItem(spacerItem1)
         self.horizontalLayout = QtGui.QHBoxLayout()
         self.horizontalLayout.setObjectName("horizontalLayout")
-        spacerItem1 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Preferred, QtGui.QSizePolicy.Minimum)
-        self.horizontalLayout.addItem(spacerItem1)
+        spacerItem2 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Preferred, QtGui.QSizePolicy.Minimum)
+        self.horizontalLayout.addItem(spacerItem2)
         self.loginButton = QtGui.QPushButton(UbuntuOneConfigWidget)
         self.loginButton.setObjectName("loginButton")
         self.horizontalLayout.addWidget(self.loginButton)
-        spacerItem2 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Preferred, QtGui.QSizePolicy.Minimum)
-        self.horizontalLayout.addItem(spacerItem2)
+        spacerItem3 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Preferred, QtGui.QSizePolicy.Minimum)
+        self.horizontalLayout.addItem(spacerItem3)
         self.verticalLayout_2.addLayout(self.horizontalLayout)
         self.successLabel = QtGui.QLabel(UbuntuOneConfigWidget)
         font = QtGui.QFont()
@@ -57,8 +54,8 @@ class Ui_UbuntuOneConfigWidget(object):
         self.successLabel.setWordWrap(True)
         self.successLabel.setObjectName("successLabel")
         self.verticalLayout_2.addWidget(self.successLabel)
-        spacerItem3 = QtGui.QSpacerItem(0, 10, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Fixed)
-        self.verticalLayout_2.addItem(spacerItem3)
+        spacerItem4 = QtGui.QSpacerItem(0, 10, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Fixed)
+        self.verticalLayout_2.addItem(spacerItem4)
         self.volumeSettings = QtGui.QGroupBox(UbuntuOneConfigWidget)
         self.volumeSettings.setObjectName("volumeSettings")
         self.horizontalLayout_3 = QtGui.QHBoxLayout(self.volumeSettings)
@@ -72,14 +69,15 @@ class Ui_UbuntuOneConfigWidget(object):
         self.horizontalLayout_3.addWidget(self.volumeEdit)
         self.verticalLayout_2.addWidget(self.volumeSettings)
         self.verticalLayout.addLayout(self.verticalLayout_2)
-        spacerItem4 = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
-        self.verticalLayout.addItem(spacerItem4)
+        spacerItem5 = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
+        self.verticalLayout.addItem(spacerItem5)
 
         self.retranslateUi(UbuntuOneConfigWidget)
         QtCore.QMetaObject.connectSlotsByName(UbuntuOneConfigWidget)
 
     def retranslateUi(self, UbuntuOneConfigWidget):
         UbuntuOneConfigWidget.setWindowTitle(QtGui.QApplication.translate("UbuntuOneConfigWidget", "Form", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_3.setText(QtGui.QApplication.translate("UbuntuOneConfigWidget", "Ubuntu One", None, QtGui.QApplication.UnicodeUTF8))
         self.label.setText(QtGui.QApplication.translate("UbuntuOneConfigWidget", "<p>Ubuntu One is a personal cloud service operated by Canonical Ltd.</p>\n"
 "<p>Click the <span style=\"font-style: italic\">Login...</span> button to login. If you are already logged in, you will not be prompted again to enter your e-mail and password.</p>\n"
 "<p>Once logged in, please enter the <span style=\"font-style: italic\">Volume</span> name where files will be uploaded. If this field is left empty, it will default to <span style=\"font-style: italic\">Postman</span>.</p>", None, QtGui.QApplication.UnicodeUTF8))

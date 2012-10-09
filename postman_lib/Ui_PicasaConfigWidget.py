@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'PicasaConfigWidget.ui'
 #
-# Created: Sat Sep  1 22:51:12 2012
+# Created: Tue Oct  9 22:34:29 2012
 #      by: pyside-uic 0.2.13 running on PySide 1.1.0
 #
 # WARNING! All changes made in this file will be lost!
@@ -17,17 +17,14 @@ class Ui_PicasaConfigWidget(object):
         self.verticalLayout = QtGui.QVBoxLayout(PicasaConfigWidget)
         self.verticalLayout.setContentsMargins(0, 0, 0, -1)
         self.verticalLayout.setObjectName("verticalLayout")
-        self.frame = QtGui.QFrame(PicasaConfigWidget)
-        self.frame.setMinimumSize(QtCore.QSize(0, 70))
-        self.frame.setMaximumSize(QtCore.QSize(16777215, 70))
-        self.frame.setStyleSheet("QFrame {\n"
-"    background-image: url(/opt/extras.ubuntu.com/postman/share/postman/media/picasaLogo.png);\n"
-"    background-repeat: none;\n"
-"    background-origin: border-box;\n"
-"    background-position: left center\n"
-"}")
-        self.frame.setObjectName("frame")
-        self.verticalLayout.addWidget(self.frame)
+        self.label_5 = QtGui.QLabel(PicasaConfigWidget)
+        font = QtGui.QFont()
+        font.setPointSize(28)
+        self.label_5.setFont(font)
+        self.label_5.setObjectName("label_5")
+        self.verticalLayout.addWidget(self.label_5)
+        spacerItem = QtGui.QSpacerItem(20, 10, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Fixed)
+        self.verticalLayout.addItem(spacerItem)
         self.verticalLayout_2 = QtGui.QVBoxLayout()
         self.verticalLayout_2.setContentsMargins(6, 6, 6, -1)
         self.verticalLayout_2.setObjectName("verticalLayout_2")
@@ -36,8 +33,8 @@ class Ui_PicasaConfigWidget(object):
         self.label.setWordWrap(True)
         self.label.setObjectName("label")
         self.verticalLayout_2.addWidget(self.label)
-        spacerItem = QtGui.QSpacerItem(20, 15, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Fixed)
-        self.verticalLayout_2.addItem(spacerItem)
+        spacerItem1 = QtGui.QSpacerItem(20, 15, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Fixed)
+        self.verticalLayout_2.addItem(spacerItem1)
         self.loginContainer = QtGui.QGroupBox(PicasaConfigWidget)
         self.loginContainer.setObjectName("loginContainer")
         self.formLayout_2 = QtGui.QFormLayout(self.loginContainer)
@@ -57,16 +54,16 @@ class Ui_PicasaConfigWidget(object):
         self.formLayout_2.setWidget(1, QtGui.QFormLayout.FieldRole, self.passwordEdit)
         self.horizontalLayout = QtGui.QHBoxLayout()
         self.horizontalLayout.setObjectName("horizontalLayout")
-        spacerItem1 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Preferred, QtGui.QSizePolicy.Minimum)
-        self.horizontalLayout.addItem(spacerItem1)
+        spacerItem2 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Preferred, QtGui.QSizePolicy.Minimum)
+        self.horizontalLayout.addItem(spacerItem2)
         self.loginButton = QtGui.QPushButton(self.loginContainer)
         self.loginButton.setObjectName("loginButton")
         self.horizontalLayout.addWidget(self.loginButton)
-        spacerItem2 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Preferred, QtGui.QSizePolicy.Minimum)
-        self.horizontalLayout.addItem(spacerItem2)
+        spacerItem3 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Preferred, QtGui.QSizePolicy.Minimum)
+        self.horizontalLayout.addItem(spacerItem3)
         self.formLayout_2.setLayout(3, QtGui.QFormLayout.SpanningRole, self.horizontalLayout)
-        spacerItem3 = QtGui.QSpacerItem(20, 5, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Fixed)
-        self.formLayout_2.setItem(2, QtGui.QFormLayout.SpanningRole, spacerItem3)
+        spacerItem4 = QtGui.QSpacerItem(20, 5, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Fixed)
+        self.formLayout_2.setItem(2, QtGui.QFormLayout.SpanningRole, spacerItem4)
         self.verticalLayout_2.addWidget(self.loginContainer)
         self.messageLabel = QtGui.QLabel(PicasaConfigWidget)
         font = QtGui.QFont()
@@ -85,8 +82,8 @@ class Ui_PicasaConfigWidget(object):
         self.successLabel.setWordWrap(True)
         self.successLabel.setObjectName("successLabel")
         self.verticalLayout_2.addWidget(self.successLabel)
-        spacerItem4 = QtGui.QSpacerItem(0, 15, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Fixed)
-        self.verticalLayout_2.addItem(spacerItem4)
+        spacerItem5 = QtGui.QSpacerItem(0, 15, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Fixed)
+        self.verticalLayout_2.addItem(spacerItem5)
         self.albumSettings = QtGui.QGroupBox(PicasaConfigWidget)
         self.albumSettings.setObjectName("albumSettings")
         self.horizontalLayout_3 = QtGui.QHBoxLayout(self.albumSettings)
@@ -100,14 +97,15 @@ class Ui_PicasaConfigWidget(object):
         self.horizontalLayout_3.addWidget(self.albumEdit)
         self.verticalLayout_2.addWidget(self.albumSettings)
         self.verticalLayout.addLayout(self.verticalLayout_2)
-        spacerItem5 = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
-        self.verticalLayout.addItem(spacerItem5)
+        spacerItem6 = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
+        self.verticalLayout.addItem(spacerItem6)
 
         self.retranslateUi(PicasaConfigWidget)
         QtCore.QMetaObject.connectSlotsByName(PicasaConfigWidget)
 
     def retranslateUi(self, PicasaConfigWidget):
         PicasaConfigWidget.setWindowTitle(QtGui.QApplication.translate("PicasaConfigWidget", "Form", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_5.setText(QtGui.QApplication.translate("PicasaConfigWidget", "Picasa", None, QtGui.QApplication.UnicodeUTF8))
         self.label.setText(QtGui.QApplication.translate("PicasaConfigWidget", "<p>Picasa is an online image viewer and organizer.</p>\n"
 "<p>Please enter your <span style=\"font-style: italic\">username</span> and  <span style=\"font-style: italic\">password</span> to log in.</p>\n"
 "<p>Once logged in, enter the <span style=\"font-style: italic\">Album</span> name where files will be uploaded. If this field is left empty, it will default to <span style=\"font-style: italic\">Postman</span>.</p>", None, QtGui.QApplication.UnicodeUTF8))
