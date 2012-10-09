@@ -1,7 +1,5 @@
-postman (0.3.2) precise; urgency=low
+postman (0.3.3) precise; urgency=low
 
-  * Added tagging support.
-  * Changed internal handling of UI.
-  * Fixed Ubuntu One bug.
+  * Removed service logos.
 
  -- Edward Apap <schumifer@hotmail.com>  Sat, 1 Sep 2012 23:00:00 +0200
