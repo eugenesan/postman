@@ -1,12 +1,30 @@
 from PySide import QtCore
 
+
 class Stamp(object):
 
     def __init__(self, name, iconSource, configWidget, worker):
-        self.name = name
-        self.iconSource = iconSource
-        self.configWidget = configWidget
-        self.worker = worker
+        self._name = name
+        self._iconSource = iconSource
+        self._configWidget = configWidget
+        self._worker = worker
+
+    @property
+    def name(self):
+        return self._name
+
+    @property
+    def iconSource(self):
+        return self._iconSource
+
+    @property
+    def configWidget(self):
+        return self._configWidget
+
+    @property
+    def worker(self):
+        return self._worker
+
 
 class StampListModel(QtCore.QAbstractListModel):
 

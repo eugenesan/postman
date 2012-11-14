@@ -1,9 +1,6 @@
 from PySide import QtCore
 from PySide import QtGui
 
-from FlickrWorker import *
-from GooglePlusWorker import *
-from UbuntuOneWorker import *
 
 class ServicesModel(QtCore.QAbstractListModel):
     

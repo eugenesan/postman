@@ -1,33 +1,35 @@
+from PySide import QtCore
 from PySide import QtGui
 from PySide import QtDeclarative
 
 from postman_lib import postmanconfig
+from postman_lib.Ui_MainWindow import Ui_MainWindow
 
-from postman_lib import Ui_MainWindow
+from AddImagesWidget import AddImagesWidget
+from ImageDetailsWidget import ImageDetailsWidget
+from FileDetailsModel import FileDetailsModel
+from FileDetails import FileDetails
+from ServicesModel import ServicesModel
+from Interface import Interface
 
-# services imports
-from ServiceInstructionsWidget import *
-from FlickrConfigWidget import *
-from GooglePlusConfigWidget import *
-from PicasaConfigWidget import *
-from UbuntuOneConfigWidget import *
+from Stamps import StampListModel, Stamp
+from ServiceInstructionsWidget import ServiceInstructionsWidget
 
-from AddImagesWidget import *
-from ImageDetailsWidget import *
-from FileDetailsModel import *
-from FileDetails import *
-from ServicesModel import *
-from Interface import *
+from FlickrConfigWidget import FlickrConfigWidget
+from GooglePlusConfigWidget import GooglePlusConfigWidget
+from PicasaConfigWidget import PicasaConfigWidget
+from UbuntuOneConfigWidget import UbuntuOneConfigWidget
 
-import Stamps
-
+from FlickrWorker import FlickrWorker
+from UbuntuOneWorker import UbuntuOneWorker
+from GooglePlusWorker import GooglePlusWorker
 
 class MainWindow(QtGui.QMainWindow):
      
     def __init__(self, parent=None):
         super(MainWindow, self).__init__(parent)
 
-        self.ui = Ui_MainWindow.Ui_MainWindow()
+        self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.setAcceptDrops(True)
         self.setFixedHeight(600)
@@ -76,11 +78,11 @@ class MainWindow(QtGui.QMainWindow):
         self.initializeQmlScene()
         
     def setupStampsModel(self):
-        self.stampsModel = Stamps.StampListModel()
-        self.stampsModel.addStamp(Stamps.Stamp('Flickr', 'images/stamps/flickrIcon.png', FlickrConfigWidget(), lambda: FlickrWorker()))
-        self.stampsModel.addStamp(Stamps.Stamp('Google+', 'images/stamps/googlePlusIcon.png', GooglePlusConfigWidget(), lambda: GooglePlusWorker()))
-        self.stampsModel.addStamp(Stamps.Stamp('Picasa', 'images/stamps/picasaIcon.png', PicasaConfigWidget(), lambda: GooglePlusWorker()))
-        self.stampsModel.addStamp(Stamps.Stamp('Ubuntu One', 'images/stamps/ubuntuOneIcon.png', UbuntuOneConfigWidget(), lambda: UbuntuOneWorker()))
+        self.stampsModel = StampListModel()
+        self.stampsModel.addStamp(Stamp('Flickr', 'images/stamps/flickrIcon.png', FlickrConfigWidget(), lambda: FlickrWorker()))
+        self.stampsModel.addStamp(Stamp('Google+', 'images/stamps/googlePlusIcon.png', GooglePlusConfigWidget(), lambda: GooglePlusWorker()))
+        self.stampsModel.addStamp(Stamp('Picasa', 'images/stamps/picasaIcon.png', PicasaConfigWidget(), lambda: GooglePlusWorker()))
+        self.stampsModel.addStamp(Stamp('Ubuntu One', 'images/stamps/ubuntuOneIcon.png', UbuntuOneConfigWidget(), lambda: UbuntuOneWorker()))
 
     def initializeQmlScene(self):
         self.rootContext = self.ui.declarativeView.rootContext()

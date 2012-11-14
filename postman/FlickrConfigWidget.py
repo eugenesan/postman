@@ -1,9 +1,10 @@
 from PySide import QtGui
 from PySide import QtCore
 
-from FlickrWorker import *
+from FlickrWorker import FlickrWorker
+import flickrapi
 
-from postman_lib import Ui_FlickrConfigWidget
+from postman_lib.Ui_FlickrConfigWidget import Ui_FlickrConfigWidget
 
 
 class FlickrConfigWidget(QtGui.QWidget):
@@ -15,7 +16,7 @@ class FlickrConfigWidget(QtGui.QWidget):
     def __init__(self, parent = None):
         super(FlickrConfigWidget, self).__init__(parent)
         
-        self.ui = Ui_FlickrConfigWidget.Ui_FlickrConfigWidget()
+        self.ui = Ui_FlickrConfigWidget()
         self.ui.setupUi(self)
 
         self.ui.usernameEdit.returnPressed.connect(self.ui.authButton.clicked)
@@ -35,7 +36,7 @@ class FlickrConfigWidget(QtGui.QWidget):
             service['auth'] = False
 
         self.ui.authButton.setText('Login...')
-        if service['auth'] == True:
+        if service['auth']:
             self.state = self.STATE_DONE
             self.ui.loginGroupBox.setVisible(False)
             self.ui.successLabel.setVisible(True)
@@ -73,7 +74,7 @@ class FlickrConfigWidget(QtGui.QWidget):
                     self.service['auth'] = True
                     self.serviceModel.notifyAuthChanged()
 
-            except:
+            except Exception as e:
                 QtGui.QMessageBox.information(self, QtCore.QCoreApplication.applicationName(), 'Cannot start the authorization process.\n\nPlease make sure that you are connected to the internet.')
                 self.ui.usernameContainer.setEnabled(True)
                 return

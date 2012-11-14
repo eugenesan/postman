@@ -9,7 +9,7 @@ class GooglePlusWorker(BaseWorker):
 
         self.progressSignal.emit(self.stampConfig)
 
-        if self.filesModel.count() == 0:
+        if not self.filesModel.count():
             return
 
         client = self.stampConfig['googlePlusInst']
@@ -17,7 +17,7 @@ class GooglePlusWorker(BaseWorker):
         # create album name
         albumName = ''
         if 'googlePlusAlbum' in self.stampConfig:
-            albumName = self.stampConfig['googlePlusAlbum'].rstrip()
+            albumName = self.stampConfig['googlePlusAlbum'].strip()
         if len(albumName) == 0:
             albumName = 'Postman'
 
@@ -41,7 +41,7 @@ class GooglePlusWorker(BaseWorker):
 
             if not album:
                 album = client.InsertAlbum(albumName, '')
-        except:
+        except Exception:
             self.status = 'Failed, could not create album.'
             self.statusSignal.emit(self.stampConfig)
             self.doneSignal.emit(self.stampConfig)
@@ -60,7 +60,7 @@ class GooglePlusWorker(BaseWorker):
             imageTags = self.filesModel.filesList[i].tags.encode('UTF-8','ignore')
 
             # build tags list
-            tagList = [tag.lstrip().rstrip() for tag in imageTags.split(',')]
+            tagList = [tag.strip() for tag in imageTags.split(',')]
 
             if len(imageTitle) == 0:
                 # title is required, use filename

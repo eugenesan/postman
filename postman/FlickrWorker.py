@@ -1,7 +1,3 @@
-from PySide import QtCore
-
-import flickrapi
-
 from BaseWorker import *
 
 class FlickrWorker(BaseWorker):
@@ -16,16 +12,16 @@ class FlickrWorker(BaseWorker):
 
         self.progressSignal.emit(self.stampConfig)
         
-        if self.filesModel.count() == 0:
+        if not self.filesModel.count():
             return
-        
+
         progressStep = 1.0 / self.filesModel.count()
-        
+
         flickrInstance = self.stampConfig['flickrInst']
         
         for i in range(self.filesModel.count()):
             
-            self.status = 'Uploading: ' + self.filesModel.filesList[i].filePath
+            self.status = 'Uploading: %s' % self.filesModel.filesList[i].filePath
             self.statusSignal.emit(self.stampConfig)
             
             imageFilename = self.filesModel.filesList[i].filePath.encode('UTF-8','ignore')
@@ -34,14 +30,14 @@ class FlickrWorker(BaseWorker):
             imageTags = self.filesModel.filesList[i].tags.encode('UTF-8','ignore')
 
             # build space delimited tags string
-            tagList = ['"{}"'.format(tag.lstrip().rstrip()) for tag in imageTags.split(',')]
+            tagList = ['"%s"' % tag.strip() for tag in imageTags.split(',')]
             tagsString = ' '.join(tagList)
 
             for r in range(self.retry):
                 try:
                     flickrInstance.upload(filename=imageFilename, title=imageTitle, description=imageDescription, tags=tagsString)
                     break
-                except:
+                except Exception:
                     if r == self.retry - 1:
                         self.status = 'Failed'
                         self.statusSignal.emit(self.stampConfig)

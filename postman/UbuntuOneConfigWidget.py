@@ -13,10 +13,10 @@ class UbuntuOneConfigWidget(QtGui.QWidget):
         
         self.ui.loginButton.clicked.connect(self.loginButtonClicked)
         self.ui.volumeEdit.textEdited.connect(self.volumeTextEdited)
-        
+
     def setServiceModel(self, model):
         self.serviceModel = model
-    
+
     def setService(self, service):
         
         # add and initialize non existing parameters
